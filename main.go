@@ -174,9 +174,11 @@ func createTemplate(filename string, content string) (bool, error) {
 func main() {
 
 	value, exists := os.LookupEnv("JWTKEY")
-	if exists {
-		secretKey = []byte(value)
+	if !exists {
+		panic("error: JWTKEY it's not defined.")
 	}
+
+	secretKey = []byte(value)
 
 	e.Renderer = t
 
