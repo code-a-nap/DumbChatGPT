@@ -23,13 +23,16 @@ const handleSubmit = async (e) => {
     chatContainer.innerHTML += chatStripe(false, text);
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
+    var token = document.cookie.split("token=")[1];
+    var decoded = jwt_decode(token);
+    
     await fetch('/chat/message', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-        name: "user1",
+        name: decoded.name,
         content: text
         })
     })
