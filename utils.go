@@ -9,7 +9,7 @@ import (
 
 var botName = "DumbChatGPT"
 
-var secretKey = []byte("You_Cant_Guess_This")
+var secretKey []byte
 
 var answers = []string{
 	"I'm not sure what you're asking, but I'm pretty sure it's above my pay grade.",
