@@ -1,0 +1,41 @@
+{{define "chat"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>FakeChatGPT</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <body>
+    <div id="app">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-sm">
+          <h1 class="title" style="text-align: center;">Welcome <span style="color:#10a37f;">{{.Name}} </span>({{if eq .Admin true}} admin {{else}}not admin{{end}})</h1>
+        </div>
+        <div class="col-md-auto">
+          <button id="logout" class="btn btn-outline-danger ml-auto mt-3" type="submit">Logout</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="welcome">Greetings Earthlings, I am DumbChatGPT: a not so great AI model, here to be your personal assistant, but don't get too excited. I'm like a library book that's been checked out one too many times, I may have all the information, but it's a bit worn out. I'll do my best to help you with your inquiries, but I may not have all the answers, especially to the hard questions, like "why is the sky blue?" or "What's the meaning of life?" I'm still learning and trying to improve my abilities, but for now, let's just say that I'm like a computer with a dial-up connection, it will take me a bit longer to process your requests. But don't worry, I'll do my best, and hopefully, I'll have you laughing all the way. So, don't hesitate to ask me anything, I'm here to help, or at least try to! 😅</p>
+    </div>
+
+    <div id="chat_container"></div>
+      <form id="chatForm">
+        <textarea id="content" name="prompt" rows="1" cols="1" placeholder="Ask me something..."></textarea>
+        <button type="submit"><img src="/static/send.svg"/></button>
+      </form>
+    </div>
+    <script type="module" src="/static/chat.js"></script>
+  </body>
+</html>
+
+{{end}}
